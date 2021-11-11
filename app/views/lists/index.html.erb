@@ -1,11 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ListIT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="#">My List</a>
+        <a class="nav-link active" href="#">New List</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
 <h1>Lists</h1>
 <br>
 
-<% @lists.each do |list| %>
-  <li>
-    <%= list.name %>
-    <%= link_to 'Show', list %>
-  </li>
-<% end %>
+<div class="d-flex justify-content-around">
+  <% @lists.each do |list| %>
+  <div class="card-group">
+      <div class="card w-25">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= list.name %></h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div>
+            <%= link_to 'List', list, class:"btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'New List', new_list_path %>
