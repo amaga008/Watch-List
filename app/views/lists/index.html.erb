@@ -6,32 +6,46 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="#">My List</a>
+        <a class="nav-link active" href="#">My Lists</a>
         <a class="nav-link active" href="#">New List</a>
       </div>
     </div>
   </div>
 </nav>
 
+<div class="px-4 py-5 text-center" style="background-color:White">
+  <h1 class="display-5 fw-bold">ListIT</h1>
+  <div class="col-lg-6 mx-auto">
+  <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+  </div>
+</div>
 
-<h1>Lists</h1>
-<br>
+<div class="container mt-5">
 
-<div class="d-flex justify-content-around">
-  <% @lists.each do |list| %>
-  <div class="card-group">
-      <div class="card w-25">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><%= list.name %></h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div>
-            <%= link_to 'List', list, class:"btn btn-primary"%>
+  <div class="d-flex justify-content-between mb-5" >
+    <h1>Lists</h1>
+    <%= link_to 'New List', new_list_path, class:"btn btn-primary h-100"%>
+  </div>
+
+  <div class="d-flex justify-content-right">
+    <% @lists.each do |list| %>
+    <div class="card-group">
+        <div class="card mr-4">
+          <div class="card-body">
+            <%= image_tag list.poster_url, alt: "poster url", width: 200 %>
+            <h2 class="card-title"><%= list.name %></h5>
+            <div>
+              <%= link_to 'Enter', list, class:"btn btn-primary"%>
+              <%= link_to 'Delete', list, class:"btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<%= link_to 'New List', new_list_path %>
+  <br>
+  <br>
+  <br>
+
+</div>

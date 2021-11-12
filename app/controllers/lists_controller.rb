@@ -45,6 +45,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :address, :category, :phone_number)
+    params.require(:list).permit(:name)
   end
 end
